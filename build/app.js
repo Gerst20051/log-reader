@@ -1,7 +1,11 @@
-var greetings, socket;
+var greetings, io, path, socket;
 
-greetings = require('./greetings');
+path = require('path');
+
+greetings = require(path.join(__dirname, 'greetings'));
 
 alert(greetings('Andrew'));
 
-socket = require('socket.io-client')('http://localhost');
+io = require('socket.io-client');
+
+socket = io('http://localhost');

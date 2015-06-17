@@ -3,7 +3,7 @@
   "description": "Logreader",
   "version": "0.0.1",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "coffee ./src/server/server.coffee",
     "gulp": "./node_modules/.bin/gulp"
   },
   "dependencies": {
@@ -19,9 +19,11 @@
   "devDependencies": {
     "browserify": "10.2.4",
     "coffeeify": "1.1.0",
+    "glob": "5.0.10",
     "gulp": "3.9.0",
     "gulp-browserify": "0.5.1",
     "gulp-coffee": "2.3.1",
+    "gulp-concat": "2.5.2",
     "gulp-debug": "2.0.1",
     "gulp-stylus": "2.0.4",
     "gulp-watch": "4.2.4",

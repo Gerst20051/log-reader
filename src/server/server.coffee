@@ -4,17 +4,16 @@ http = require 'http'
 path = require 'path'
 socketio = require 'socket.io'
 Tail = require('tail').Tail
+routes = require '../../routes/index'
 
 app = express()
 server = http.createServer(app).listen 9099
 io = socketio.listen server
 
-app.set 'views', path.join(__dirname, '../views')
+app.use '/', routes
+app.use '/public', express.static(path.join(__dirname, '../../public'))
+app.set 'views', path.join(__dirname, '../../views')
 app.set 'view engine', 'jade'
-
-app.get '/', (req, res) ->
-    res.render 'index', {}
-    return
 
 console.log "Server listening on port 9099..."
 
@@ -26,7 +25,7 @@ tail.on 'line', (data) ->
         channel: 'stdout'
         value: data
 
-io.sockets.on 'connection', (socket) ->
-    socket.emit 'new-data',
-        channel: 'stdout'
-        value: "tail file #{fileName}"
+# io.sockets.on 'connection', (socket) ->
+#     socket.emit 'new-data',
+#         channel: 'stdout'
+#         value: "tail file #{fileName}"
