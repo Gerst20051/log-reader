@@ -2,7 +2,7 @@ var greetings, io, path, socket;
 
 path = require('path');
 
-greetings = require(path.join(__dirname, 'greetings'));
+greetings = require('.' + __dirname + '/greetings');
 
 alert(greetings('Andrew'));
 
