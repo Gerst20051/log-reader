@@ -1,5 +1,6 @@
 express = require 'express'
 connect = require 'connect'
+favicon = require 'serve-favicon'
 http = require 'http'
 path = require 'path'
 socketio = require 'socket.io'
@@ -10,6 +11,7 @@ app = express()
 server = http.createServer(app).listen 9099
 io = socketio.listen server
 
+app.use favicon(path.join(__dirname, '../../public/assets/favicon.ico'))
 app.use '/', routes
 app.use '/public', express.static(path.join(__dirname, '../../public'))
 app.set 'views', path.join(__dirname, '../../views')
