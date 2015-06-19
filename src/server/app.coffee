@@ -17,17 +17,17 @@ app.use '/public', express.static(path.join(__dirname, '../../public'))
 app.set 'views', path.join(__dirname, '../../views')
 app.set 'view engine', 'jade'
 
-console.log "Server listening on port 9099..."
+console.log 'Server listening on port 9099...'
 
 fileName = '/var/log/syslog'
 tail = new Tail fileName
 
 tail.on 'line', (data) ->
-    io.sockets.emit 'new-data',
-        channel: 'stdout'
-        value: data
+  io.sockets.emit 'new-data',
+    channel: 'stdout'
+    value: data
 
-# io.sockets.on 'connection', (socket) ->
-#     socket.emit 'new-data',
-#         channel: 'stdout'
-#         value: "tail file #{fileName}"
+io.sockets.on 'connection', (socket) ->
+  socket.emit 'new-data',
+    channel: 'stdout'
+    value: "tail file #{fileName}"

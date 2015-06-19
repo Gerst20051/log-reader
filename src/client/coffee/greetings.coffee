@@ -1,2 +1,2 @@
 module.exports = (name) ->
-  'Hello ' + name + '!'
+  "Hello #{name}!"
