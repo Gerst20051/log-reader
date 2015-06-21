@@ -1,0 +1,6 @@
+default:
+  server:
+    hostname: passport-vagrant-image
+    port: 9099
+  setting:
+    max_log_results: 10000

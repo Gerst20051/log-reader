@@ -1,53 +1,48 @@
-html
-  font-size 1em
-
-body
-  background #2e4557
-  color #fff
-  font-family inconsolata, "Courier New", monospace
-  font-size 16px
-  line-height 24px
-  -webkit-tap-highlight-color rgba(0, 0, 0, 0)
-  -webkit-tap-highlight-color transparent
-  -webkit-touch-callout none
-  -webkit-user-select none
-  -khtml-user-select none
-  -moz-user-select none
-  -ms-user-select none
-  user-select none
-  word-break break-all
-
-#logs
-  margin-left 130px
-  max-width 1600px
-  padding 0 1rem
-
-#logs .log-row
-  cursor pointer
-  margin-bottom 0.75rem
-  padding 12px
-  position relative
-
-#logs .log-row:nth-child(even)
-  background-color #304f5f
-  border-bottom 1px solid #365a6f
-  border-left 1px solid #24292c
-  border-radius 8px
-  border-right 1px solid #365a6f
-  border-top 1px solid #24292c
-
-#logs .log-row-data
-  -webkit-touch-callout default
-  -webkit-user-select text
-  -khtml-user-select text
-  -moz-user-select text
-  -ms-user-select text
-  user-select text
-
-#logs .log-row-details
-  background-color #414740
+.hidden
   display none
-  margin-top 5px
 
 .nowrap
-  white-space nowrap important
+  white-space nowrap !important
+
+.disable-hover,
+.disable-hover *
+  pointer-events none !important
+
+.enable-hover,
+.enable-hover *
+  pointer-events all !important
+
+#gradientTop,
+#gradientBottom
+  pointer-events none
+  height 8%
+  left 0
+  position fixed
+  width 100%
+  z-index 1
+
+#gradientTop
+  background -moz-linear-gradient(top, rgba(46, 69, 87, 0), rgba(46, 69, 87, 1))
+  background -o-linear-gradient(top, rgba(46, 69, 87, 0), rgba(46, 69, 87, 1))
+  background -webkit-linear-gradient(bottom, rgba(46, 69, 87, 0), rgba(46, 69, 87, 1))
+  background linear-gradient(to top, rgba(46, 69, 87, 0), rgba(46, 69, 87, 1))
+  top 0
+
+#gradientBottom
+  background -moz-linear-gradient(top, rgba(46, 69, 87, 1), rgba(46, 69, 87, 0))
+  background -o-linear-gradient(top, rgba(46, 69, 87, 1), rgba(46, 69, 87, 0))
+  background -webkit-linear-gradient(bottom, rgba(46, 69, 87, 1), rgba(46, 69, 87, 0))
+  background linear-gradient(to top, rgba(46, 69, 87, 1), rgba(46, 69, 87, 0))
+  bottom 0
+  height 15%
+
+#mainContent
+  bottom 10px
+  left 0
+  -webkit-overflow-scrolling: touch;
+  overflow-x hidden
+  overflow-y scroll
+  position absolute
+  right 10px
+  top 10px
+  word-break break-all

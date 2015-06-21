@@ -1,9 +1,18 @@
 $ = require 'jquery'
 greetings = require './greetings.coffee'
-require './displaylogs.coffee'
+require './logs.coffee'
+require './control-panel.coffee'
 
-console.log 'Greeting', greetings 'Andrew'
+console.log 'Greeting', greetings 'Passport'
 
 $ ->
-  # $('body').append 'hey andrew & krista!'
+  $('#logs').on 'mouseover', '.log-row', (e) ->
+    $(this).delay(0.5 * 1e3).queue ->
+      $(this).find('.log-row-data').addClass 'enable-hover'
+      return
+    return
+  $('#logs').on 'mouseleave', '.log-row', (e) ->
+    $(this).find('.log-row-data').removeClass 'enable-hover'
+    $(this).finish()
+    return
   return
