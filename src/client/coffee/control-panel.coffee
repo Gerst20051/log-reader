@@ -19,6 +19,7 @@ $ ->
   return
 
 toggleSearchControl = ->
+  $('body').toggleClass 'searchopened'
   return
 
 toggleEyeControl = ->

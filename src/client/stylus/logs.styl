@@ -1,107 +1,107 @@
 $keyframe-name = marquee
 
-#logs
-  margin-left 100px
-  padding 0 5rem 0 1rem
-
-#logs #errorLogs
-  margin-bottom 20px
-
-#logs #errorLogs .log-row,
-#logs .alert-log-row
-  border 5px solid #f00
-  margin-bottom 10px
-
-#logs .alert-log-row
-  margin-top 10px
-
-#logs .log-row
-  border-radius 8px
-  position relative
-
-#logs #normalLogs div:first-of-type .log-row-data
-  border-top 3px solid #304f5f
-
-#logs .log-row:nth-child(even)
-  background-color #304f5f
-  border-bottom 1px solid #365a6f
-  border-left 1px solid #24292c
-  border-right 1px solid #365a6f
-  border-top 1px solid #24292c
-
-#logs .log-row-data
-  -webkit-animation-play-state paused
-  animation-play-state paused
-  cursor pointer
-  margin 0 20px
-  overflow-x scroll
-  overflow -moz-scrollbars-none
-  padding 20px 0
-  pointer-events none
-  -webkit-touch-callout default
-  -webkit-user-select text
-  -khtml-user-select text
-  -moz-user-select text
-  -ms-user-select text
-  user-select text
-  white-space nowrap !important
-
-.wrapenabled #logs .log-row-data
-  white-space normal !important
-
-#logs .log-row-data.enable-hover:hover
-  animation marquee 14s linear infinite
-  -webkit-animation-play-state running
-  animation-play-state running
-
-.wrapenabled #logs .log-row-data.enable-hover:hover
-  animation none !important
-  -webkit-animation-play-state paused
-  animation-play-state paused
-
 @keyframes {$keyframe-name}
   0%
     text-indent 0px
   100%
     text-indent -4000px
 
-#logs .log-row-data::-webkit-scrollbar,
-#logs .log-row-data::-webkit-scrollbar-track,
-#logs .log-row-data::-webkit-scrollbar-thumb,
-#logs .log-row-data::-webkit-scrollbar-thumb:window-inactive {
-  background-color transparent
-  -webkit-box-shadow none
-  height 0
-  width 0
-}
+#logs
+  margin-left 100px
+  padding 0 5rem 0 1rem
 
-#logs .log-row-content
-  display none
+  #errorLogs
+    margin-bottom 20px
 
-#logs .log-row-content.eyeopened,
-.eyeopen #logs .log-row-content
-  display block
+  #errorLogs .log-row,
+  .alert-log-row
+    border 5px solid #f00
+    margin-bottom 10px
 
-#logs .log-row-data-expanded
-  background-color #4783A4
+  .alert-log-row
+    margin-top 10px
 
-#logs .log-row-details
-  background-color #2e4557
+  .log-row
+    border-radius 8px
+    position relative
 
-#logs .log-row:nth-child(odd) .log-row-details
-  background-color #304f5f
+  #normalLogs div:first-of-type .log-row-data
+    border-top 3px solid #304f5f
 
-#logs .log-row-data-expanded,
-#logs .log-row-details
-  border-radius 8px
-  margin 0 10px 20px
-  padding 10px
-  -webkit-touch-callout default
-  -webkit-user-select text
-  -khtml-user-select text
-  -moz-user-select text
-  -ms-user-select text
-  user-select text
+  .log-row:nth-child(even)
+    background-color #304f5f
+    border-bottom 1px solid #365a6f
+    border-left 1px solid #24292c
+    border-right 1px solid #365a6f
+    border-top 1px solid #24292c
+
+  .log-row-data
+    -webkit-animation-play-state paused
+    animation-play-state paused
+    cursor pointer
+    margin 0 20px
+    overflow-x scroll
+    overflow -moz-scrollbars-none
+    padding 20px 0
+    pointer-events none
+    -webkit-touch-callout default
+    -webkit-user-select text
+    -khtml-user-select text
+    -moz-user-select text
+    -ms-user-select text
+    user-select text
+    white-space nowrap !important
+
+  .wrapenabled & .log-row-data
+    white-space normal !important
+
+  .log-row-data.enable-hover:hover
+    animation marquee 14s linear infinite
+    -webkit-animation-play-state running
+    animation-play-state running
+
+  .wrapenabled & .log-row-data.enable-hover:hover
+    animation none !important
+    -webkit-animation-play-state paused
+    animation-play-state paused
+
+  .log-row-data::-webkit-scrollbar,
+  .log-row-data::-webkit-scrollbar-track,
+  .log-row-data::-webkit-scrollbar-thumb,
+  .log-row-data::-webkit-scrollbar-thumb:window-inactive {
+    background-color transparent
+    -webkit-box-shadow none
+    height 0
+    width 0
+  }
+
+  .log-row-content
+    display none
+
+  .log-row-content.eyeopened,
+  .eyeopen & .log-row-content
+    display block
+
+  .log-row-data-expanded
+    background-color #4783a4
+
+  .log-row-details
+    background-color #2e4557
+
+  .log-row:nth-child(odd) .log-row-details
+    background-color #304f5f
+
+  .log-row-data-expanded,
+  .log-row-details
+    border-radius 8px
+    margin 0 10px 20px
+    padding 10px
+    -webkit-touch-callout default
+    -webkit-user-select text
+    -khtml-user-select text
+    -moz-user-select text
+    -ms-user-select text
+    user-select text
 
 #theEnd
   font-size 20px

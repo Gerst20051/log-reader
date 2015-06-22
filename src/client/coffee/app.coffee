@@ -2,6 +2,7 @@ $ = require 'jquery'
 greetings = require './greetings.coffee'
 require './logs.coffee'
 require './control-panel.coffee'
+require './search-panel.coffee'
 
 console.log 'Greeting', greetings 'Passport'
 
