@@ -7,7 +7,6 @@ socket = io.connect config.default.server.hostname + ':' + config.default.server
 lineRegex = /((\w*)(->|::|GLOBAL:?)(\w*))(\[)(.*)(:)(\d*)(\])(:)((.*)( =>)(.*))?(.*)/;
 
 errorArray = [
-  'EMPTY'
   'Error'
   'error'
   'Exception'
@@ -20,6 +19,10 @@ errorArray = [
   'undefined'
   'Warning'
   'warning'
+]
+
+blacklistErrorArray = [
+  'Paypal not configured for this operator'
 ]
 
 loglevelArray = [
@@ -68,7 +71,12 @@ addRow = (value) ->
     if -1 < value.indexOf errorText
       rowHasError = true
     return
-  if rowHasError is true
+  rowHasBlacklistedError = false
+  blacklistErrorArray.forEach (blacklistErrorText) ->
+    if -1 < value.indexOf blacklistErrorText
+      rowHasBlacklistedError = true
+    return
+  if rowHasError is true and rowHasBlacklistedError is false
     $newLog.addClass 'alert-log-row'
     $container.find('#errorLogs').prepend $newLog.clone()
   if $('body').hasClass 'paused'
@@ -141,18 +149,18 @@ buildLine = (matches, line) ->
     newline.push '<span>', matches[5], '</span>'
     newline.push '<span class="color_orange">', matches[6], '</span>'
     newline.push '<span>', matches[7], '</span>'
-    newline.push '<span class="color_wetasphalt">', matches[8], '</span>'
+    newline.push '<span class="color_asbestos">', matches[8], '</span>'
     newline.push '<span>', matches[9], '</span>'
     if not matches[11]
       newline.push '<span class="color_pomegranate">', matches[10], '</span>'
-      newline.push '<span class="color_midnightblue">', matches[15], '</span>'
+      newline.push '<span class="color_asbestos">', matches[15], '</span>'
     else
       newline.push '<span>', matches[10], '</span>'
       newline.push '<span class="color_amethyst">', matches[12], '</span>'
-      newline.push '<span>', matches[13], '</span>'
-      newline.push '<span class="color_greensea">', matches[14], '</span>'
+      newline.push '<span class="color_asbestos">', matches[13], '</span>'
+      newline.push '<span class="line_data">', matches[14], '</span>'
   else
-    newline.push line
+    newline.push '<span class="color_asbestos">', line, '</span>'
   newline.push '</span>'
   newline.join ''
 
