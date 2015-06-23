@@ -9,7 +9,7 @@ $ ->
       when 'wrapControl' then toggleWrapControl()
       when 'pauseControl' then togglePauseControl()
       when 'clearControl'
-        $('#errorLogs, #normalLogs').empty()
+        $('#hiddenLogs, #errorLogs, #normalLogs').empty()
       when 'scrollTopControl'
         $('#mainContent').animate { scrollTop: 0 }, 'slow'
       when 'scrollBottomControl'
@@ -36,6 +36,9 @@ toggleWrapControl = ->
 
 togglePauseControl = ->
   $('body').toggleClass 'paused'
-  if !$('body').hasClass 'paused'
-    $('#logs .log-row.hidden').show()
+  if not $('body').hasClass 'paused'
+    $hiddenLogs = $('#logs').find('#hiddenLogs')
+    if $hiddenLogs.has('div').length
+      $('#logs').find('#normalLogs').prepend($hiddenLogs.html())
+      $hiddenLogs.empty()
   return

@@ -10,6 +10,9 @@ $keyframe-name = marquee
   margin-left 100px
   padding 0 5rem 0 1rem
 
+  #hiddenLogs
+    display none
+
   #errorLogs
     margin-bottom 20px
 
@@ -18,10 +21,10 @@ $keyframe-name = marquee
     margin-bottom 10px
 
   #errorLogs .log-row
-    border 5px solid #f00
+    border 5px solid #f00 !important
 
   .alert-log-row
-    border 5px solid rgba(255, 0, 0, 0.6)
+    border 5px solid rgba(255, 0, 0, 0.6) !important
     margin-top 10px
 
   .log-row
@@ -37,6 +40,24 @@ $keyframe-name = marquee
     border-left 1px solid #24292c
     border-right 1px solid #365a6f
     border-top 1px solid #24292c
+
+  .log-row-time,
+  .log-row-loglevel
+    left -110px
+    position absolute
+    width 100px
+
+  .alert-log-row .log-row-time,
+  .alert-log-row .log-row-loglevel
+    left -114px
+
+  .log-row-time
+    color #ddd
+    top 10px
+
+  .log-row-loglevel
+    color #bbb
+    top 30px
 
   .log-row-data
     -webkit-animation-play-state paused
@@ -54,6 +75,9 @@ $keyframe-name = marquee
     -ms-user-select text
     user-select text
     white-space nowrap !important
+
+  .alert-log-row .log-row-data
+    margin-left 16px
 
   .wrapenabled & .log-row-data
     white-space normal !important
@@ -88,8 +112,14 @@ $keyframe-name = marquee
   .log-row-data-expanded
     background-color #4783a4
 
+    .wrapenabled &
+      display none
+
   .log-row-details
     background-color #2e4557
+
+    pre
+      word-break break-word
 
   .log-row:nth-child(odd) .log-row-details
     background-color #304f5f
