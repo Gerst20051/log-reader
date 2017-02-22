@@ -40,4 +40,4 @@ emitData = ->
     channel: 'stdout'
     value: logArray.splice(0, logArrayLength)
 
-setInterval emitData, 1e3
+setInterval emitData, 0.25 * 1e3

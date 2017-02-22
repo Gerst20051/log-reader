@@ -1,3 +1,5 @@
+pd = require('pretty-data').pd
+
 debug = (msg) ->
   self.postMessage (
     type: 'debug'
@@ -7,10 +9,16 @@ debug = (msg) ->
 
 self.onmessage = (e) ->
   input = e.data
+  output = []
+  input.msg.forEach (row) ->
+    output.push getRow {
+      config: input.config
+      body_status: input.body_status
+    }, row
   self.postMessage (
     type: 'response'
     original_msg: input.msg
-    msg: getRow(input)
+    msg: output
   )
   return
 
@@ -38,10 +46,9 @@ mysqlTerms = [
   'TRUNCATE'
 ]
 
-getRow = (input) ->
+getRow = (input, data) ->
   config = input.config
   body_status = input.body_status
-  data = input.msg
   html = []
   matches = data.match(/^(\w{3} \d{2}) (\d{2}:\d{2}:\d{2}) (.*) (V\d+):(.*) \(log level = (\d)\)$/)
   if matches and matches.length
@@ -126,7 +133,7 @@ addSyntaxHighlightingToNode = (data) ->
       matchedMysqlTerms = true
     return
   if matchedMysqlTerms == true # MYSQL
-    return '<div><pre class="brush: sql">' + data.trim() + '</pre></div>' # vkbeautify.sql(data.trim())
+    return '<div><pre class="brush: sql">' + pd.sql(data.trim()) + '</pre></div>'
   else if 1 == data.indexOf('[') or 1 == data.indexOf('{') # JSON
     return '<div><pre class="brush: js">' + JSON.stringify(JSON.parse(data.trim()), null, 4) + '</pre></div>'
   return

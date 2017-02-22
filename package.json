@@ -32,6 +32,7 @@
     "gulp-uglify": "2.0.1",
     "gulp-watch": "4.3.11",
     "node-yaml-config": "0.0.4",
+    "pretty-data": "0.40.0",
     "pug": "2.0.0-beta11",
     "serve-favicon": "2.4.0",
     "serve-static": "1.11.2",
