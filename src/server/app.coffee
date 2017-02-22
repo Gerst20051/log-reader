@@ -18,7 +18,7 @@ app.use favicon(path.join(__dirname, '../../public/assets/favicon.ico'))
 app.use '/', routes
 app.use '/public', express.static(path.join(__dirname, '../../public'))
 app.set 'views', path.join(__dirname, '../../views')
-app.set 'view engine', 'jade'
+app.set 'view engine', 'pug'
 
 console.log "Server listening on port #{port}..."
 
