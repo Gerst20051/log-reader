@@ -24,13 +24,20 @@ console.log "Server listening on port #{port}..."
 
 fileName = '/var/log/syslog'
 tail = new Tail fileName
+logArray = []
 
 tail.on 'line', (data) ->
-  io.sockets.emit 'new-data',
-    channel: 'stdout'
-    value: data
+  logArray.push data
 
 io.sockets.on 'connection', (socket) ->
   socket.emit 'new-data',
     channel: 'stdout'
     value: "tail file #{fileName}"
+
+emitData = ->
+  logArrayLength = logArray.length
+  io.sockets.emit 'new-data',
+    channel: 'stdout'
+    value: logArray.splice(0, logArrayLength)
+
+setInterval emitData, 1e3

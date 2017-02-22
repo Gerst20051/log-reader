@@ -39,12 +39,14 @@
     "tail": "1.2.1",
     "vinyl-buffer": "1.0.0",
     "vinyl-source-stream": "1.1.0",
+    "workerify": "0.3.0",
     "yamlify": "0.1.3"
   },
   "browserify": {
     "transform": [
       "coffeeify",
       "debowerify",
+      "workerify",
       "yamlify"
     ]
   },
